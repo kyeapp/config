@@ -1,35 +1,50 @@
-set number
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go' "install vim-go plugin
+
+call plug#end()
+
+"remove/add imports when saving
+let g:go_fmt_command = "goimports"
+
+" Copy to clipboard
+vmap <C-C> "+y
+
+" fuzzy-find
+set rtp+=/usr/local/opt/fzf
+map <C-P> :FZF<CR>
+nmap ; :FZF<CR>
+
+" Persistent Undo
+set undofile
+set undodir=~/.vim/undodir
+
+" tab setting
 set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set hidden
 
-"filetype off
-"filetype plugin indent off
-"set runtimepath+=$GOROOT/misc/vim
-"filetype plugin indent on
-"syntax enable 
+" enable mouse functionality
+set mouse=a
 
-"au BufRead,BufNewFile *.go set filetype=go
+"coloscheme
+set background=dark
+"colorscheme molokai
+colorscheme monokai
 
-syntax enable  
-filetype plugin on  
-set number  
-set hlsearch
-let g:go_disable_autoinstall = 0
-
-
-" Highlight
-let g:go_highlight_functions = 1  
-let g:go_highlight_methods = 1  
-let g:go_highlight_structs = 1  
-let g:go_highlight_operators = 1  
+"syntax highlighting
+syntax enable
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
-inoremap jk <esc>
-inoremap <esc> <NOP>
-nnoremap er $
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+"statusline
+set statusline=%F
+
