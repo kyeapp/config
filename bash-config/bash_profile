@@ -1,9 +1,12 @@
-#!/bin/bash
+### KEVIN's SETTINGS
+#export PS1="\[\033[38;5;32m\]\s-\v\\[$(tput sgr0)\]: \w\n\\$ \[$(tput sgr0)\]\e[0m"
+export PS1="\s-\v: \w\n\\$ "
 
-export CLICOLOR=1
-export PS1="\u@\h:\[$(tput sgr0)\]\[\033[38;5;33m\][\w]\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
-export GOPATH="/home/github"
-export PATH=/usr/local/Cellar/ruby/2.4.2/bin:$PATH
+export LSCOLORS="Exfxcxdxbxegedabagacad"
+alias ls="ls -G"
 
+alias vim="nvim"
+alias pp="vim ~/.bash_profile"
 alias rr="source ~/.bash_profile"
-alias profile="vim ~/.bash_profile"
+alias vrc="vim ~/.vimrc"
+alias ll="ls -la"
