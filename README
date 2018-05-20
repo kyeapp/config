@@ -1,0 +1,16 @@
+SETUP
+
+brew install bash-completion //for tab completion of git commands
+Brew install neovim //the editor that I prefer
+Brew install fzf //fuzzy finding files for neovim and command line history
+Brew install ag //a faster grep
+Brew install python //python3 is required for deoplete. auto complete code for neovim
+
+// a better git log
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit”
+
+//set neovim as the default git editor
+git config --global core.editor /usr/local/bin/nvim
+
+
+
