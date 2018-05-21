@@ -37,3 +37,12 @@ export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
+
+export GIT_EDITOR=nvim
+
+# set GOPATH
+export GOPATH=~/GOPATH
+export PATH=$PATH:$GOPATH/bin
+
+# Enable python3
+export PATH=$PATH:/usr/local/Cellar/python/3.6.5/bin

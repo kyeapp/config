@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 " navigation shortcuts
 "Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'terryma/vim-multiple-cursors'
 "Plug 'klen/python-mode'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'rking/ag.vim'
@@ -25,12 +26,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " text formatting
 "Plug 'godlygeek/tabular'
 
-" colors
-"Plug 'altercation/vim-colors-solarized'
-
 " Golang plugin
-Plug 'fatih/vim-go'
-let g:go_fmt_command = "goimports"
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Autocomplete for Go
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -39,9 +36,20 @@ Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' 
 
 call plug#end()
 
+" ================================
+" General Settings
+" ================================
 set mouse=a
-set background=dark
 set number
+set nofoldenable
+set background=dark
+syntax enable
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='medium'
+
+" set iterm tab to file basename
+set title
+set titlestring=%t
 
 " Copy to clipboard
 vmap <C-C> "+y
@@ -60,7 +68,17 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-syntax enable
+" ================================
+" Golang Settings
+" =================================
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
+
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
@@ -69,10 +87,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-colorscheme gruvbox
-
-" Center the line when jumping to it
-nmap gg ggzz
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -87,5 +101,29 @@ inoremap <silent><expr> <TAB>
     return !col || getline('.')[col - 1]  =~ '\s'
     endfunction"}}}
 
-" Statusline
-set statusline=%F "filepath
+" ==========================
+" Custom settings
+" ==========================
+
+" Center the line when jumping to it
+nmap gg ggzz
+
+" Center next search
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap jk <Esc>
+
+"move up and down single screen row
+nmap j gj
+nmap k gk
+nmap <up> g<up>
+nmap <down> g<down>
+
+" Lowercase highlight upper case but not the other way around
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+
+" No highlight shortcut
+nnoremap <C-h> :noh<CR>
