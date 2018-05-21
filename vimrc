@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 " helpful utils
-"Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
 "Plug 'sjl/gundo.vim'
 "Plug 'tpope/vim-commentary'
 "Plug 'itchyny/lightline.vim'
@@ -9,13 +10,12 @@ call plug#begin('~/.vim/plugged')
 "Plug 'tpope/vim-repeat'
 "Plug 'raimondi/delimitmate'
 
-" git commands in vim
+ "git commands in vim
 "Plug 'tpope/vim-fugitive'
 
 " navigation shortcuts
 "Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'terryma/vim-multiple-cursors'
 "Plug 'klen/python-mode'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'rking/ag.vim'
@@ -105,25 +105,31 @@ inoremap <silent><expr> <TAB>
 " Custom settings
 " ==========================
 
+inoremap jk <Esc>
+
 " Center the line when jumping to it
-nmap gg ggzz
+nnoremap gg ggzz
 
 " Center next search
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap jk <Esc>
 
 "move up and down single screen row
-nmap j gj
-nmap k gk
-nmap <up> g<up>
-nmap <down> g<down>
+nnoremap j gj
+nnoremap k gk
+nnoremap <up> g<up>
+nnoremap <down> g<down>
 
 " Lowercase highlight upper case but not the other way around
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+set cursorline " Highlight the current line
 
-" No highlight shortcut
+" Remove highlight shortcut
 nnoremap <C-h> :noh<CR>
+
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDCompactSexyComs = 1
