@@ -1,38 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
 " helpful utils
-Plug 'scrooloose/nerdcommenter'
-Plug 'terryma/vim-multiple-cursors'
-"Plug 'sjl/gundo.vim'
-"Plug 'tpope/vim-commentary'
-"Plug 'itchyny/lightline.vim'
-"Plug 'bling/vim-bufferline'
-"Plug 'tpope/vim-repeat'
-"Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-commentary'
 
- "git commands in vim
-"Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
+
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 " navigation shortcuts
-"Plug 'davidhalter/jedi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'klen/python-mode'
-"Plug 'vim-syntastic/syntastic'
-"Plug 'rking/ag.vim'
-"Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-unimpaired'
-"Plug 'majutsushi/tagbar'
-
-" text formatting
-"Plug 'godlygeek/tabular'
 
 " Golang plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
-" Autocomplete for Go
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 call plug#end()
 
@@ -43,9 +23,9 @@ set mouse=a
 set number
 set nofoldenable
 set background=dark
-syntax enable
+" syntax enable
+let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
-let g:gruvbox_contrast_dark='medium'
 
 " set iterm tab to file basename
 set title
@@ -54,7 +34,7 @@ set titlestring=%t
 " Copy to clipboard
 vmap <C-C> "+y
 
-" fuzzy-find with control-T
+" Fuzzy-find
 set rtp+=/usr/local/opt/fzf
 map <C-P> :FZF<CR>
 
@@ -67,6 +47,10 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+" Hightlight trailing spaces in red
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
 
 " ================================
 " Golang Settings
@@ -88,19 +72,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
-" Tab to cycle through autocomplete
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-    function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-    endfunction"}}}
-
 " ==========================
 " Custom settings
 " ==========================
@@ -111,8 +82,8 @@ inoremap jk <Esc>
 nnoremap gg ggzz
 
 " Center next search
-nnoremap n nzz
-nnoremap N Nzz
+" nnoremap n nzz
+" nnoremap N Nzz
 
 "move up and down single screen row
 nnoremap j gj
@@ -128,8 +99,25 @@ set hlsearch
 set cursorline " Highlight the current line
 
 " Remove highlight shortcut
-nnoremap <C-h> :noh<CR>
+nnoremap / :noh<CR>/
+nnoremap <CR> :noh<CR>
 
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDCompactSexyComs = 1
+nmap S  :%s//g<LEFT><LEFT>
+vmap S  :s//g<LEFT><LEFT>
+
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'gitbranch#name'
+    \ },
+\ }
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+

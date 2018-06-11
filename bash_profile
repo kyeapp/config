@@ -9,23 +9,40 @@ CYAN="\[\033[36m\]"
 CURRENT_DIRECTORY="\w"
 USER="\u"
 SHELL="\s-\v"
-export PS1="${BLUE}${SHELL}:${GREEN}\$(GIT_BRANCH)${CYAN} ${CURRENT_DIRECTORY}\n${BLUE}${USER}$ ${WHITE}"
+export PS1="\n${BLUE}${SHELL}:${GREEN}\$(GIT_BRANCH)${CYAN} ${CURRENT_DIRECTORY}\n${BLUE}${USER}$ ${WHITE}"
 
 # Shortcuts for editing and sourcing config
 alias vim="nvim"
 alias pp="vim ~/.bash_profile"
 alias vrc="vim ~/.vimrc"
-alias rr="source ~/.bash_profile"
+alias rr="export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"; source ~/.bash_profile"
 
-# Colors for ls
+# because I hate typing quotes
+alias agg=ag_custom
+ag_custom() {
+    echo "ag \"$*\""
+    ag "$*"
+}
+
+# combine ps and ag
+alias psg=ps_ag
+ps_ag() {
+    echo "ps -ef | ag $@"
+    ps -ef | ag $@
+}
+
+# Colors for ls and grep
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 alias ls="ls -G"
 alias ll="ls -la"
+alias grep="grep --color=always"
 
 # git alias
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -10"
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
+alias gd="git diff"
+alias gb="git branch -vv"
 
 # enable git completion (requires `brew install bash-completion`)
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
@@ -43,6 +60,3 @@ export GIT_EDITOR=nvim
 # set GOPATH
 export GOPATH=~/GOPATH
 export PATH=$PATH:$GOPATH/bin
-
-# Enable python3
-export PATH=$PATH:/usr/local/Cellar/python/3.6.5/bin
