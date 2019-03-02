@@ -3,13 +3,16 @@ call plug#begin('~/.vim/plugged')
 " helpful utils
 Plug 'tpope/vim-commentary'
 
+" coloscheme
 Plug 'morhetz/gruvbox'
 
+" lightline
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
 " navigation shortcuts
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tpope/vim-surround'
 
 " Golang plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -63,29 +66,24 @@ au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
 
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
+" let g:go_highlight_build_constraints = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_structs = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_variable_declarations = 1
 
 " ==========================
 " Custom settings
 " ==========================
 
-inoremap jk <Esc>
-
-" Center the line when jumping to it
+" center the line when jumping to it
 nnoremap gg ggzz
 
-" Center next search
-" nnoremap n nzz
-" nnoremap N Nzz
-
-"move up and down single screen row
+" move up and down single screen row
 nnoremap j gj
 nnoremap k gk
 nnoremap <up> g<up>
@@ -97,10 +95,6 @@ set ignorecase
 set smartcase
 set hlsearch
 set cursorline " Highlight the current line
-
-" Remove highlight shortcut
-nnoremap / :noh<CR>/
-nnoremap <CR> :noh<CR>
 
 nmap S  :%s//g<LEFT><LEFT>
 vmap S  :s//g<LEFT><LEFT>
