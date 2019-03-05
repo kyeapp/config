@@ -7,7 +7,7 @@ Brew install ag //a faster grep
 Brew install python //python3 is required for deoplete. auto complete code for neovim
 
 // a better git log
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit”
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 //set neovim as the default git editor
 git config --global core.editor /usr/local/bin/nvim
