@@ -1,0 +1,3 @@
+# Ubuntu bash profile
+source ~/.bashrc
+source ~/workspace/config/bash_base_profile

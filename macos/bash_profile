@@ -1,0 +1,6 @@
+source ~/workspace/config/bash_base_profile
+# Colors for ls and grep
+export LSCOLORS="Exfxcxdxbxegedabagacad"
+alias ls="ls -G"
+alias ll="ls -la"
+alias grep="grep --color=always"
