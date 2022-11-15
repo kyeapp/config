@@ -12,4 +12,4 @@ git config --global alias.st status
 # git settings
 git config --global core.editor /usr/local/bin/nvim
 git config --global user.email "paeynivek@gmail.com"
-git config --global user.name "Kevin Yeap"
+git config --global user.name "Kevin Y"
