@@ -142,9 +142,10 @@ source /usr/share/doc/fzf/examples/completion.bash
 
 export GIT_EDITOR=nvim
 
-# Shortcuts for editing and sourcing config
+# Shortcuts
 alias vim="nvim"
 alias br="vim ~/.bashrc"
 alias vrc="vim ~/.config/nvim/init.vim"
+alias work="cd /mnt/c/Users/paeyn/Documents/workspace"
 
 cd /mnt/c/Users/paeyn/Documents/workspace
