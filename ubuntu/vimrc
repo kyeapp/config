@@ -17,6 +17,8 @@ Plug 'tpope/vim-surround'
 " Golang plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+Plug 'psliwka/vim-smoothie'
+
 call plug#end()
 
 " ================================
