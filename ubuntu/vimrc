@@ -13,12 +13,11 @@ Plug 'itchyny/vim-gitbranch'
 
 " navigation shortcuts
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-surround'
 
 " Golang plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
-
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
