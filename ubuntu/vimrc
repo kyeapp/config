@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " helpful utils
 Plug 'tpope/vim-commentary'
+Plug 'psliwka/vim-smoothie'
 
 " coloscheme
 Plug 'morhetz/gruvbox'
@@ -17,7 +18,7 @@ Plug 'tpope/vim-surround'
 " Golang plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
-Plug 'psliwka/vim-smoothie'
+
 
 call plug#end()
 
@@ -49,9 +50,9 @@ set undodir=~/.vim/undodir
 
 " Spacing
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 " Hightlight trailing spaces in red
 :highlight ExtraWhitespace ctermbg=red guibg=red
@@ -98,8 +99,7 @@ set smartcase
 set hlsearch
 set cursorline " Highlight the current line
 
-nmap S  :%s//g<LEFT><LEFT>
-vmap S  :s//g<LEFT><LEFT>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',

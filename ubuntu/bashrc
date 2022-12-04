@@ -147,5 +147,6 @@ alias vim="nvim"
 alias br="vim ~/.bashrc"
 alias vrc="vim ~/.config/nvim/init.vim"
 alias work="cd /mnt/c/Users/paeyn/Documents/workspace"
+alias config="cd /mnt/c/Users/paeyn/Documents/workspace/config"
 
 cd /mnt/c/Users/paeyn/Documents/workspace
