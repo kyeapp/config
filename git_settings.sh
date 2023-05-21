@@ -13,3 +13,4 @@ git config --global alias.st status
 git config --global core.editor /usr/local/bin/nvim
 git config --global user.email "paeynivek@gmail.com"
 git config --global user.name "Kevin Y"
+git config --global core.autocrlf false

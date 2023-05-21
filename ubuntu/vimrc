@@ -57,6 +57,8 @@ set tabstop=2
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 
+:set fileformat=unix
+
 " ================================
 " Golang Settings
 " =================================
@@ -116,3 +118,25 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" WSL yank support
+set clipboard+=unnamedplus
+let g:clipboard = {
+            \   'name': 'win32yank-wsl',
+          \   'copy': {
+            \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+            \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 0,
+          \ }
+
+" paste and reyank last selected
+xnoremap p pgvy
+
+" HTML indenting to augment gg=G
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head"

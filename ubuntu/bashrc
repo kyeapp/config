@@ -138,7 +138,7 @@ export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+# source /usr/share/doc/fzf/examples/completion.bash
 
 export GIT_EDITOR=nvim
 
@@ -150,3 +150,11 @@ alias work="cd /mnt/c/Users/paeyn/Documents/workspace"
 alias config="cd /mnt/c/Users/paeyn/Documents/workspace/config"
 
 cd /mnt/c/Users/paeyn/Documents/workspace
+export PATH=$PATH:/usr/local/go/bin
+
+cd /mnt/c/Users/paeyn/Documents/workspace
+
+# headless chrome in WSL https://github.com/cypress-io/cypress/issues/4925#issuecomment-820843689
+export PATH=$PATH:/mnt/c/Users/paeyn/Documents/workspace/config/ubuntu/WSL
+
+# sudo dbus-daemon --system &> /dev/null
