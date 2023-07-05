@@ -19,6 +19,8 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'airblade/vim-gitgutter'
 
+" Plug 'vim-autoformat/vim-autoformat'
+
 call plug#end()
 
 " ================================
@@ -103,15 +105,15 @@ set cursorline " Highlight the current line
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'gitbranch#name'
-    \ },
-\ }
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component_function': {
+          \   'gitbranch': 'gitbranch#name'
+          \ },
+          \ }
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -121,13 +123,13 @@ noremap <Right> <NOP>
 " WSL yank support
 set clipboard+=unnamedplus
 let g:clipboard = {
-            \   'name': 'win32yank-wsl',
-          \   'copy': {
-            \      '+': 'win32yank.exe -i --crlf',
-          \      '*': 'win32yank.exe -i --crlf',
-          \    },
-          \   'paste': {
-            \      '+': 'win32yank.exe -o --lf',
+      \   'name': 'win32yank-wsl',
+      \   'copy': {
+        \      '+': 'win32yank.exe -i --crlf',
+        \      '*': 'win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
           \      '*': 'win32yank.exe -o --lf',
           \   },
           \   'cache_enabled': 0,
@@ -140,3 +142,18 @@ xnoremap p pgvy
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 let g:html_indent_inctags = "html,body,head"
+
+"HTML audo indent
+function! AutoIndentOnSave()
+  if &filetype == 'html'
+    let save_cursor = getpos('.')
+    execute 'normal! gg=G'
+    call setpos('.', save_cursor)
+    write
+  endif
+endfunction
+
+augroup AutoIndent
+  autocmd!
+  autocmd BufWritePost *.html call AutoIndentOnSave()
+augroup END

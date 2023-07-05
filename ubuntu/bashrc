@@ -147,18 +147,16 @@ alias vim="nvim"
 alias br="vim ~/.bashrc"
 alias rr="source ~/.bashrc"
 alias vrc="vim ~/.config/nvim/init.vim"
-alias work="cd /mnt/c/Users/paeyn/Documents/workspace"
-alias config="cd /mnt/c/Users/paeyn/Documents/workspace/config"
+alias work="cd ~/workspace"
+alias config="cd ~/workspace/config"
 
-cd /mnt/c/Users/paeyn/Documents/workspace
 export GOPATH=~/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 cd /mnt/c/Users/paeyn/Documents/workspace
 
 # headless chrome in WSL https://github.com/cypress-io/cypress/issues/4925#issuecomment-820843689
-export PATH=$PATH:/mnt/c/Users/paeyn/Documents/workspace/config/ubuntu/WSL
+# export PATH=$PATH:/mnt/c/Users/paeyn/Documents/workspace/config/ubuntu/WSL
 
 # sudo dbus-daemon --system &> /dev/null
-LS_COLORS='ow=01;34'
-export LS_COLORS
+export LS_COLORS='ow=01;34'
