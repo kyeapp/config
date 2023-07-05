@@ -153,7 +153,7 @@ alias config="cd ~/workspace/config"
 export GOPATH=~/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-cd /mnt/c/Users/paeyn/Documents/workspace
+# cd /mnt/c/Users/paeyn/Documents/workspace
 
 # headless chrome in WSL https://github.com/cypress-io/cypress/issues/4925#issuecomment-820843689
 # export PATH=$PATH:/mnt/c/Users/paeyn/Documents/workspace/config/ubuntu/WSL
