@@ -19,7 +19,9 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'vim-autoformat/vim-autoformat'
+Plug 'vim-autoformat/vim-autoformat'
+
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -138,22 +140,7 @@ let g:clipboard = {
 " paste and reyank last selected
 xnoremap p pgvy
 
-" HTML indenting to augment gg=G
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-let g:html_indent_inctags = "html,body,head"
+" autoindent html on save
+au BufWrite * :Autoformat
 
-"HTML audo indent
-function! AutoIndentOnSave()
-  if &filetype == 'html'
-    let save_cursor = getpos('.')
-    execute 'normal! gg=G'
-    call setpos('.', save_cursor)
-    write
-  endif
-endfunction
-
-augroup AutoIndent
-  autocmd!
-  autocmd BufWritePost *.html call AutoIndentOnSave()
-augroup END
+let g:indent_guides_enable_on_vim_startup = 1
