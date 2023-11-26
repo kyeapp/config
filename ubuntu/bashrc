@@ -160,7 +160,7 @@ alias old_work="cd /mnt/c/Users/paeyn/Documents/workspace"
 # export PATH=$PATH:/mnt/c/Users/paeyn/Documents/workspace/config/ubuntu/WSL
 
 # sudo dbus-daemon --system &> /dev/null
-export LS_COLORS='ow=01;34'
+export LS_COLORS='ow=01;34:*.html=00;38;5;136'
 
 cd ~/workspace
 cd ~/workspace/tailwind-templates
