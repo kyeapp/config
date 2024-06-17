@@ -146,7 +146,7 @@ export GIT_EDITOR=nvim
 alias vim="nvim"
 alias br="vim ~/.bashrc"
 alias rr="source ~/.bashrc"
-alias vrc="vim ~/.config/nvim/init.vim"
+alias vrc="vim ~/workspace/config/ubuntu/vimrc"
 alias work="cd ~/workspace"
 alias config="cd ~/workspace/config"
 alias notes="vim ~/workspace/config/notes"
@@ -163,4 +163,3 @@ alias old_work="cd /mnt/c/Users/paeyn/Documents/workspace"
 export LS_COLORS='ow=01;34:*.html=00;38;5;136'
 
 cd ~/workspace
-cd ~/workspace/tailwind-templates
