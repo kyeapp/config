@@ -20,7 +20,7 @@ ln -s ~/workspace/config/ubuntu/vim ~/.vim
 rm -rf ~/.vimrc
 ln -s ~/workspace/config/ubuntu/vimrc ~/.vimrc
 # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-sudo cp WSL/win32yank.exe /usr/local/bin
+sudo cp win32yank.exe /usr/local/bin
 
 # setup bash settings
 rm -rf ~/.bashrc
