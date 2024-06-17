@@ -10,7 +10,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 
 # git settings
-git config --global core.editor /usr/local/bin/nvim
+git config --global core.editor /usr/bin/nvim
 git config --global user.email "paeynivek@gmail.com"
 git config --global user.name "Kevin Y"
 git config --global core.autocrlf false
