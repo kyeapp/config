@@ -5,6 +5,13 @@
 # sudo apt install fzf
 # sudo apt install silversearcher-ag
 
+# install golang
+# GO_VERSION=$(curl -Ls https://go.dev/VERSION?m=text | head -n 1)
+# DOWNLOAD_URL="https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz" # for linux
+# wget "${DOWNLOAD_URL}"
+# rm -rf /usr/local/go
+# sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+
 # seutp vimrc
 # sudo add-apt-repository ppa:neovim-ppa/stable
 # sudo apt-get update
