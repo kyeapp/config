@@ -8,10 +8,13 @@
 # sudo add-apt-repository ppa:neovim-ppa/stable
 # sudo apt-get update
 # sudo apt-get install neovim
-rm -rf ~/.config/nvim
-mkdir -p ~/.config/nvim/
-ln -s ~/.vimrc ~/.config/nvim/init.vim
 
+# link neovim to vimrc
+rm -rf ~/.config
+mkdir -p ~/.config/nvim/
+ln -s ~/workspace/config/ubuntu/init.vim ~/.config/nvim/init.vim
+
+# link vim dir and vimrc
 rm -rf ~/.vim
 ln -s ~/workspace/config/ubuntu/vim ~/.vim
 rm -rf ~/.vimrc
