@@ -109,13 +109,13 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-        \ },
-        \ 'component_function': {
-          \   'gitbranch': 'gitbranch#name'
-          \ },
-          \ }
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -123,19 +123,22 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " WSL yank support
+" yank and crtl-c copies to windows clipboard
+" paste and crtl-v pastes to neovim and windows
 set clipboard+=unnamedplus
-let g:clipboard = {
-      \   'name': 'win32yank-wsl',
-      \   'copy': {
-        \      '+': 'win32yank.exe -i --crlf',
-        \      '*': 'win32yank.exe -i --crlf',
-        \    },
-        \   'paste': {
-          \      '+': 'win32yank.exe -o --lf',
-          \      '*': 'win32yank.exe -o --lf',
-          \   },
-          \   'cache_enabled': 0,
-          \ }
+
+" let g:clipboard = {
+"       \   'name': 'win32yank-wsl',
+"       \   'copy': {
+"         \      '+': 'win32yank.exe -i --crlf',
+"         \      '*': 'win32yank.exe -i --crlf',
+"         \    },
+"         \   'paste': {
+"           \      '+': 'win32yank.exe -o --lf',
+"           \      '*': 'win32yank.exe -o --lf',
+"           \   },
+"           \   'cache_enabled': 0,
+"           \ }
 
 " paste and reyank last selected
 xnoremap p pgvy
